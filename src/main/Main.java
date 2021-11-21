@@ -28,6 +28,13 @@ public class Main {
 
             CreateUser createdUser = new CreateUser(lastname, firstname, userEmail);
             final UserId userId = userApplicationService.handle(createdUser);
+
+            final User storedUser = userRepository.findById(userId);
+
+            System.out.println("Saisissez vos coordonnées de paiements: ");
+            String payment = scanner.nextLine();
+            System.out.println("Paiement OK!");
+
         }
     }
 }
