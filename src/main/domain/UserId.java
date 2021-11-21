@@ -2,7 +2,7 @@ package main.domain;
 
 import java.util.Objects;
 
-public class UserId {
+public final class UserId {
     private final int value;
 
     public UserId(int value) {

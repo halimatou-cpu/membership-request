@@ -9,7 +9,7 @@ public final class UserApplicationService {
 
     public UserId handle(CreateUser createUser) {
         final UserId userId = userRepository.nextIdentity();
-        User user = new User(userId, createUser.lastname, createUser.firstname);
+        User user = new User(userId, createUser.lastname, createUser.firstname, createUser.email);
         userRepository.add(user);
         return userId;
     }

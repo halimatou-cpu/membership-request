@@ -12,10 +12,12 @@ public class UserApplicationServiceTest {
         UserRepository userRepository = new InMemoryUserRepository();
         UserApplicationService userApplicationService = new UserApplicationService(userRepository);
 
-        CreateUser createdUser = new CreateUser("BOISSINOT", "GREGORY");
+        final UserEmail userEmail= new UserEmail("mariedupont@gmail.com");
+
+        CreateUser createdUser = new CreateUser("DUPONT", "MARIE", userEmail);
         final UserId userId = userApplicationService.handle(createdUser);
 
         final User storedUser = userRepository.findById(userId);
-        assertEquals(new User(userId, createdUser.lastname, createdUser.firstname), storedUser);
+        assertEquals(new User(userId, createdUser.lastname, createdUser.firstname, createdUser.email), storedUser);
     }
 }
